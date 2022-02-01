@@ -1,46 +1,34 @@
-import React, { useState } from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import employeeService from './Services/employee-service';
+import { useSelector, useDispatch } from 'react-redux'
+import { employeesActions } from './Store/index'
 
 function App() {
-    const [employees, setEmployees] = useState([]);
-    const [isArrived, setIsArrived] = useState(false);
-    if(!isArrived){
-      employeeService.getAllemployees().then(response => {
-        console.log(response)
-        console.log(response.data)
-        setEmployees(response.data)
-        setIsArrived(true)
-      })
-      .catch(e => {
-          console.error(e.message);
-      });
-    }
-    
-  if(isArrived)
-    return(
-        <getData employees={employees}/>
-      );
-  else
-    return(
-      <div>
-        <h1>
-          keep wating...
-        </h1>
-      </div>
-    )
+  const dispatch = useDispatch()
+  useEffect(() => {
+    getData(dispatch)
+  }, [dispatch])
+  const employees = useSelector((state) => state.employees.value)
+
+  return (
+    <div>
+        {
+          employees.map(employee => {
+            return <h1>{employee.first_name} {employee.last_name}</h1>})
+        }    
+    </div>
+  )
 }
 
 export default App;
   
-const getData = (props) => {
-return(
-<div>
-    <ul>
-      {props.employees.map(emp => {
-        return <li>{emp.first_name + " " + emp.last_name}</li>
-      })}
-    </ul>
-</div>
-)
+function getData(dispatch){
+  employeeService.getAllemployees().then(response => {
+    console.log(response.data)
+    dispatch(employeesActions.setEmployees(response.data))
+  })
+  .catch(e => {
+      console.error(e.message);
+  })
 }
