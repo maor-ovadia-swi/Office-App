@@ -18,12 +18,3 @@ employees = Employee.create([
     }
 ])
 
-
-items = Item.create([
-    {
-        name: "Screen"
-    },
-    {
-        name: "charger"
-    }
-])
