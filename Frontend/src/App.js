@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { employeesActions } from './Store/index'
 import Navbar from './Components/Navbar';
 import Welcome from './Components/Welcome'
+import { Routes, Route } from "react-router-dom";
+import EmployeeEquipments from './Components/EmployeeEquipments';
+import OfficeDays from './Components/OfficeDays';
 
 function App() {
   const dispatch = useDispatch()
@@ -16,7 +19,12 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Welcome />
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/employee_equipments" element={<EmployeeEquipments />} />
+        <Route path="/office_days" element={<OfficeDays />} />
+      </Routes>
+
         {/* {
           employees.map(employee => {
             return <h1>{employee.first_name} {employee.last_name}</h1>})

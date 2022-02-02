@@ -4,7 +4,8 @@ import ReorderIcon from "@material-ui/icons/Reorder"
 
 const Navbar = () => {
 
-    const [showLinks, setShowLinks] = useState(false)
+    const [showLinks, setShowLinks] = useState(false);
+    
     return(
         <div className="Navbar">
             <a className="solarwindsLogo" href="/">
