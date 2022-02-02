@@ -1,3 +1,4 @@
+#---------------------------------------Frontend ignore---------------------------------------
 # Logs
 logs
 *.log
@@ -38,7 +39,7 @@ typings/
 .env
 
 
-# Backend ignore
+# ---------------------------------------Backend ignore---------------------------------------
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #
@@ -47,31 +48,31 @@ typings/
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/Backend/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-*
+/Backend/db/*.sqlite3
+/Backend/db/*.sqlite3-*
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/Backend/log/*
+/Backend/tmp/*
+/Backend!/log/.keep
+/Backend!/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/Backend/tmp/pids/*
+!/Backend/tmp/pids/
+!/Backend/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
+/Backend/storage/*
+!/Backend/storage/.keep
+/Backend/tmp/storage/*
+!/Backend/tmp/storage/
+!/Backend/tmp/storage/.keep
 
-/public/assets
+/Backend/public/assets
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+/Backend/config/master.key

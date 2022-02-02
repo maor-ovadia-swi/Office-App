@@ -26,4 +26,5 @@ ActiveRecord::Schema.define(version: 2022_02_01_113901) do
     t.integer "employees_id"
     t.index ["employees_id"], name: "index_items_on_employees_id"
   end
+
 end
