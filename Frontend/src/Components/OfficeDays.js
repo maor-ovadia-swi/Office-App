@@ -1,12 +1,11 @@
 import React from "react";
-
-
+import Header from "./Header";
 
 const OfficeDays = () => {
 
     return(
-        <h1>Office Days</h1>
-    );
+        <Header title={"Office Days"}/>
+        );
 }
 
 
