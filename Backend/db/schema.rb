@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_113901) do
+ActiveRecord::Schema.define(version: 2022_02_08_103829) do
 
   create_table "employees", force: :cascade do |t|
     t.string "first_name"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_113901) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employees_id"
-    t.index ["employees_id"], name: "index_items_on_employees_id"
+    t.integer "employee_id"
+    t.index ["employee_id"], name: "index_items_on_employee_id"
   end
 
 end
