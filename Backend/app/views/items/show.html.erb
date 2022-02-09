@@ -3,6 +3,9 @@
 <%= render @item %>
 
 <div>
+  <p>
+  <%= @item.employee_id %>
+  </p>
   <%= link_to "Edit this item", edit_item_path(@item) %> |
   <%= link_to "Back to items", items_path %>
 

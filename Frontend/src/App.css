@@ -4,7 +4,22 @@
   height: vh;
 }
 
-
 button:hover {
   cursor: pointer;
+}
+
+.employeeContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.employeeContainer > div {
+  flex: 50%; /* or - flex: 0 50% - or - flex-basis: 50% - */
+  /*demo*/
+  box-shadow: 0 0 0 1px black;
+  margin-bottom: 10px;
+}
+
+.employee {
+  width: 100%;
 }

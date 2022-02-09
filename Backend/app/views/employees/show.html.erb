@@ -3,6 +3,7 @@
 <%= render @employee %>
 
 <div>
+  <%= render @employee.items %>
   <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
   <%= link_to "Back to employees", employees_path %>
 

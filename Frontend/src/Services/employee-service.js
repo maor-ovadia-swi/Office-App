@@ -1,6 +1,6 @@
 import http from "../http-common";
 
-const getAllemployees = () => {
+const getAllEmployees = () => {
     return http.get(`/employees`);
 };
 
@@ -12,7 +12,7 @@ const deleteEmployeeById = (employeeId) => {
     return http.delete(`/employees/${employeeId}`);
 };
 export default {
-    getAllemployees,
+    getAllEmployees,
     getEmployeeById,
     deleteEmployeeById
 };

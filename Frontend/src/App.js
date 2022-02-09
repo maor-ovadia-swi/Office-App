@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 import './App.css';
 import employeeService from './Services/employee-service';
 import { useDispatch } from 'react-redux'
-import { employeesActions } from './Store/index'
+import { employeesActions, itemsActions } from './Store/index'
 import Navbar from './Components/Navbar';
 import Welcome from './Components/Welcome'
 import { Routes, Route } from "react-router-dom";
 import EmployeeEquipments from './Components/EmployeeEquipments';
 import OfficeDays from './Components/OfficeDays';
+import itemService from './Services/item.service';
 
 function App() {
   const dispatch = useDispatch()
@@ -30,9 +31,16 @@ function App() {
 export default App;
   
 function getData(dispatch){
-  employeeService.getAllemployees().then(response => {
+  employeeService.getAllEmployees().then(response => {
     console.log(response.data)
     dispatch(employeesActions.setEmployees(response.data))
+  })
+  .catch(e => {
+      console.error(e.message);
+  })
+  itemService.getAllItems().then(response => {
+    console.log(response.data)
+    dispatch(itemsActions.setItems(response.data))
   })
   .catch(e => {
       console.error(e.message);
