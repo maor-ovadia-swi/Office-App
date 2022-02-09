@@ -22,14 +22,16 @@ const EmployeeEquipments = (props) => {
                 <Header title={"Employee Equipments"}/>
                 <div className="employeeContainer">
                     {employees.map((employee) => {
-                        var employeeItems = items.filter(item => item.employee_id === employee.id)
+                        var employeeItems = items.filter((item) => item.employee_id === employee.id)
                         return  <div>
-                                    <div className="employee">{employee.first_name} {employee.last_name}</div>
-                                    <div className="employee">{employeeItems.map((item) => {
+                                    <div key={employee.id} className="employee">{employee.first_name} {employee.last_name}</div>
+                                    {employeeItems.map((item) => {
                                         return(
-                                            <li> {item.name}</li>
+                                            <ul style={{display:"inline-block"}}>
+                                                <li style={{display:"table-cell"}} key={item.id}> {item.name}</li>
+                                            </ul>
                                         )
-                                    })}</div>
+                                    })}
                                 </div>
                                 })}
                 </div>
