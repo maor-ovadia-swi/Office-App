@@ -32,14 +32,12 @@ export default App;
   
 function getData(dispatch){
   employeeService.getAllEmployees().then(response => {
-    console.log(response.data)
     dispatch(employeesActions.setEmployees(response.data))
   })
   .catch(e => {
       console.error(e.message);
   })
   itemService.getAllItems().then(response => {
-    console.log(response.data)
     dispatch(itemsActions.setItems(response.data))
   })
   .catch(e => {

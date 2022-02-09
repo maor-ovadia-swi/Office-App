@@ -4,6 +4,8 @@ class EmployeesController < ApplicationController
   # GET /employees or /employees.json
   def index
     @employees = Employee.all 
+    # @employees.each do [employee]
+    #   items += employee.items
     # @employees.each do |employee|
     #   titem = Item.where("employee_id = ?", employee).order("created_at DESC")
     #   @employee.items += titem if titem
@@ -12,8 +14,6 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1 or /employees/1.json
   def show
-    @items = @employee.items
-
   end
 
   # GET /employees/new
