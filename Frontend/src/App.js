@@ -8,6 +8,7 @@ import Welcome from './Components/Welcome'
 import { Routes, Route } from "react-router-dom";
 import EmployeeEquipments from './Components/EmployeeEquipments';
 import OfficeDays from './Components/OfficeDays';
+import EmployeePage from './Components/EmployeePage';
 import itemService from './Services/item.service';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/employee_equipments" element={<EmployeeEquipments />} />
+        <Route path="/employees/:empID" element={<EmployeePage />} />
         <Route path="/office_days" element={<OfficeDays />} />
       </Routes>
     </div>

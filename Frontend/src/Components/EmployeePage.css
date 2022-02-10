@@ -1,0 +1,74 @@
+.item-container {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(123, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  display: flex;
+  width: 90%;
+  text-align: center;
+  margin: 15px auto;
+  border-radius: 15px;
+  flex-direction: row;
+  position: relative;
+}
+
+.item-row {
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+
+  padding: 16px;
+  width: 90%;
+}
+
+.item-row:nth-child(4n + 1) {
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+}
+
+.item-row:nth-child(4n + 2) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
+  );
+}
+
+.item-row:nth-child(4n + 3) {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+  );
+}
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+}
+.delete-icon {
+  margin-right: 5px;
+  color: whitesmoke;
+}
+.edit-icon {
+  color: whitesmoke;
+}

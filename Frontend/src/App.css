@@ -7,23 +7,3 @@
 button:hover {
   cursor: pointer;
 }
-
-.employeeContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.employeeContainer > div {
-  flex: 100%;
-  box-shadow: 0 0 0 1px black;
-  margin-bottom: 10px;
-}
-
-.employee {
-  margin: 5px;
-  flex: 20%;
-}
-.employeeItem {
-  flex: 80%;
-}

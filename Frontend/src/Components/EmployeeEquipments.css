@@ -1,0 +1,31 @@
+.employeeContainer {
+    display: flex;
+    vertical-align: middle;
+    box-shadow: 0 0 0 1px black;
+  }
+  .employeeName {
+    width: 150px;
+    padding: 10px;
+    border-right: solid black;
+  }
+  
+  .employeeName a:active,
+  .employeeName a:hover{
+    cursor: pointer;
+  }
+  .employeeName a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .employeeItems {
+    display: "inline-block";
+  }
+  
+  .employeeItems li {
+    padding-top: 10px;
+    padding-right: 5px;
+    display: table-cell;
+  }
+  
