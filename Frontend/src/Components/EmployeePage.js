@@ -72,6 +72,9 @@ const EmployeePage = (props) => {
                                 
                             )
                         })}
+                        <div className="add-button-container">
+                            <a href="something" className="add-button">Add New Item</a>
+                        </div>
             </div>
             );
     }
