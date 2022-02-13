@@ -4,6 +4,11 @@ const getAllItems = () => {
     return http.get(`/items`);
 };
 
+const deleteItemById = (itemId) => {
+    return http.delete(`/items/${itemId}`);
+};
+
 export default {
-    getAllItems
+    getAllItems,
+    deleteItemById
 };

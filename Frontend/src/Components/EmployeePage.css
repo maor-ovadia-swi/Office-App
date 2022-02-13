@@ -4,17 +4,12 @@
   padding: 0;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  background: linear-gradient(
-    90deg,
-    rgba(123, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
   display: flex;
   width: 90%;
   text-align: center;
   margin: 15px auto;
   border-radius: 15px;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
 }
 
@@ -34,6 +29,7 @@
 
   padding: 16px;
   width: 90%;
+  margin-bottom: 10px;
 }
 
 .item-row:nth-child(4n + 1) {

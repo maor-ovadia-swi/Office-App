@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
-
+  protect_from_forgery with: :null_session
+  
   # GET /items or /items.json
   def index
     @items = Item.all
