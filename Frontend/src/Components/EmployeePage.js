@@ -6,29 +6,21 @@ import "./EmployeePage.css";
 import capitalize from "../Utils/CapitalizeWords"
 import { RiCloseCircleLine } from 'react-icons/ri';
 import { TiEdit } from 'react-icons/ti';
-import itemService from "../Services/item.service";
+import itemService from "../Services/item-service";
 import { itemsActions } from '../Store/index'
+import ItemForm from "./ItemForm";
 
 const EmployeePage = (props) => {
     const [items, setItems] = useState([]);
+    const [title, setTitle] = useState("");
+    const [showPopup, setShowPopup] = useState(false);
     const dispatch = useDispatch();
-    const [edit, setEdit] = useState({
-        id: null,
-        value: ''
-        });    
     const {empID} = useParams()
     const employees = useSelector((state) => state.employees.value)
     const allItems = useSelector((state) => state.items.value);
-    const addItem = item => {
-    const newItems = [item, ...items];
-        setItems(newItems);
-        console.log(...items);
-    };
-    
-    const updateItem = (itemId, newValue) => {
-        setItems(prev => prev.map(item => (item.id === itemId ? newValue : item)));
-    };
-    
+    const [editItem, setEditItem] = useState("");
+
+
     const removeItem = (id) => {
         const removedArr = [...items].filter(item => item.id !== id);
         itemService.deleteItemById(id).then(() => {
@@ -39,13 +31,21 @@ const EmployeePage = (props) => {
             console.error(e.message);
         })
     };
-    const submitUpdate = value => {
-        updateItem(edit.id, value);
-        setEdit({
-            id: null,
-            value: ''
-        });
-    };
+
+    const handleUpdateItem = (props) => {
+        setTitle("Edit Item");
+        setEditItem(props)
+        togglePopup();
+    }
+
+    const handleAddItem = () => { 
+        setTitle("Add New Item");
+        togglePopup();
+    }
+    const togglePopup = () => {
+        setShowPopup(!showPopup);
+    }
+
     if(allItems.length === 0 || employees.length === 0){
         return (
             <h1>Loading...</h1>
@@ -57,22 +57,26 @@ const EmployeePage = (props) => {
         }
         const employee = employees.find(emp => emp.id === Number(empID))
         var employeeItems = items.filter((item) => item.employee_id === employee.id)
-
+        var employeeItemsMap = employeeItems.reduce(function (c, empItem) {
+            c[empItem.name.toLowerCase()] = (c[empItem.name.toLowerCase()] || 0) + 1;
+            return c;
+        }, Object.create(null)); 
+        employeeItems = employeeItems.filter((v,i,a)=>a.findIndex(t=>(t.name===v.name))===i)
         return(
             <div>
                 <Header title={`${capitalize(employee.first_name)} ${capitalize(employee.last_name)} Equipments`}/>
                 <div className="item-container">
-                    {employeeItems.map((item, i, row) => {
+                    {employeeItems.map((item) => {
                         return(
                             <div className="item-row" key={item.id}>
-                                {capitalize(item.name)}
+                                {capitalize(item.name) + (employeeItemsMap[item.name.toLowerCase()] > 1 ? " x" + employeeItemsMap[item.name.toLowerCase()] : "")}
                                 <div className='icons'>
                                 <RiCloseCircleLine
                                 onClick={() => removeItem(item.id)}
                                 className='delete-icon'
                                 />
                                 <TiEdit
-                                onClick={() => setEdit({ id: item.id, value: item.name })}
+                                onClick={() => handleUpdateItem({ id: item.id, value: item.name })}
                                 className='edit-icon'
                                 />
                                 </div>
@@ -81,12 +85,12 @@ const EmployeePage = (props) => {
                     })}
                 </div>
                 <div className="add-button-container">
-                    <a href="something" className="add-button">Add New Item</a>
+                    <a className="add-button" onClick={handleAddItem}>Add New Item</a>
                 </div>
+                {showPopup ? <ItemForm closePopup={togglePopup} title={title} item={editItem}/> : null}
             </div>
             );
     }
 }
-
 
 export default EmployeePage;

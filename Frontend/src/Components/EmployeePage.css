@@ -12,7 +12,40 @@
   flex-direction: column;
   position: relative;
 }
+.item-form {
+}
 
+.item-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #5d0cff;
+  outline: none;
+  width: 320px;
+  background: transparent;
+  color: black;
+}
+
+.item-input::placeholder {
+  color: black;
+}
+.item-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
+  );
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.item-input.edit {
+  border: 2px solid #149fff;
+}
 .item-row {
   display: flex;
   font-weight: bold;
@@ -30,6 +63,7 @@
   padding: 16px;
   width: 90%;
   margin-bottom: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 8px;
 }
 
 .item-row:nth-child(4n + 1) {
@@ -89,6 +123,7 @@ a.add-button {
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   transition: all 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 8px;
 }
 a.add-button:hover {
   border-color: rgba(255, 255, 255, 1);
@@ -97,6 +132,8 @@ a.add-button:hover {
 @media all and (max-width: 30em) {
   a.add-button {
     display: block;
+    float: none;
+    position: relative;
     margin: 0.2em auto;
   }
 }

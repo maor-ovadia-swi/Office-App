@@ -9,7 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import EmployeeEquipments from './Components/EmployeeEquipments';
 import OfficeDays from './Components/OfficeDays';
 import EmployeePage from './Components/EmployeePage';
-import itemService from './Services/item.service';
+import itemService from './Services/item-service';
 
 function App() {
   const dispatch = useDispatch()
