@@ -9,7 +9,7 @@ const deleteItemById = (itemId) => {
 };
 
 const updateItemById = (item) => {
-    return http.put(`/items/${item.id}`, item)
+    return http.put(`/items/${item.id}`, {name: item.name})
 }
 
 const createItem = (item) => {

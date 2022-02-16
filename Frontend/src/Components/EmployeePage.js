@@ -39,6 +39,7 @@ const EmployeePage = (props) => {
     }
 
     const handleAddItem = () => { 
+        setEditItem("");
         setTitle("Add New Item");
         togglePopup();
     }
@@ -76,7 +77,7 @@ const EmployeePage = (props) => {
                                 className='delete-icon'
                                 />
                                 <TiEdit
-                                onClick={() => handleUpdateItem({ id: item.id, value: item.name })}
+                                onClick={() => handleUpdateItem({ id: item.id, name: item.name })}
                                 className='edit-icon'
                                 />
                                 </div>
@@ -87,7 +88,7 @@ const EmployeePage = (props) => {
                 <div className="add-button-container">
                     <a className="add-button" onClick={handleAddItem}>Add New Item</a>
                 </div>
-                {showPopup ? <ItemForm closePopup={togglePopup} title={title} item={editItem}/> : null}
+                {showPopup ? <ItemForm closePopup={togglePopup} title={title} item={editItem} empID={empID}/> : null}
             </div>
             );
     }
